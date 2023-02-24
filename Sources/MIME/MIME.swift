@@ -5,15 +5,13 @@
 //  Created by Tibor Bodecs on 2023. 02. 24..
 //
 
-public struct MIME {
-    
-    public init() {
+public func mimeType(for ext: String) -> String? {
+    for (key, exts) in types {
+        if exts.contains(ext) {
+            return key
+        }
     }
-}
-
-struct MIMEType {
-    let type: String
-    let extensions: [String]
+    return nil
 }
 
 let types: [String: [String]] = [
@@ -366,13 +364,3 @@ let types: [String: [String]] = [
     "x-epoc/x-sisx-app": ["sisx"],
     "x-world/x-vrml": ["wrl", "vrm", "vrml"],
 ]
-
-public func mimeType(for ext: String) -> String? {
-    for (key, exts) in types {
-        if exts.contains(ext) {
-            return key
-        }
-    }
-    return nil
-}
-

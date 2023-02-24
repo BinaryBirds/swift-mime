@@ -11,6 +11,7 @@ import XCTest
 final class MIMETests: XCTestCase {
 
     func testExample() throws {
-
+        let mime = mimeType(for: "ai") // -> application/postscript
+        XCTAssertEqual("application/postscript", mime)
     }
 }

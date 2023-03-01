@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import mimeSDK
+import mime
 import Yaml
 
 let packageRootPath = URL(fileURLWithPath: #file)
@@ -15,9 +15,9 @@ let packageRootPath = URL(fileURLWithPath: #file)
                         .joined(separator: "/")
                         .dropFirst()
 
-let assetsUrl = URL(fileURLWithPath: String(packageRootPath)).appendingPathComponent("Tests")
-                                                             .appendingPathComponent("Assets")
+let assetsUrl = URL(fileURLWithPath: String(packageRootPath)).appendingPathComponent("Assets")
 let testData = try Data(contentsOf: assetsUrl)
+
 do {
     let testOutput = String(data: testData, encoding: .utf8)
     let value = try Yaml.load(testOutput ?? "")

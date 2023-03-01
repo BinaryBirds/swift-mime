@@ -2,23 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-mime",
-    platforms: [
-        .macOS(.v10_15),
-    ],
+    name: "mime",
+    platforms: [.macOS(.v10_15),],
     products: [
-        
-    ],
-    dependencies: [
-        .package(url: "https://github.com/behrang/YamlSwift.git", from: "3.4.4")
+        .executable(name: "mime", targets: ["mime"]),
+        .library(name: "mimeSDK", targets: ["mimeSDK"])
     ],
     targets: [
-        .target(name: "mime", dependencies: [
-            .product(name: "Yaml", package: "YamlSwift"),
-        ]),
-        .executableTarget(name: "Run", dependencies: ["mime"]),
-        .testTarget(name: "mimeTests", dependencies: [
-            .target(name: "mime"),
-        ])
+        .executableTarget(name: "mime", dependencies: [.target(name: "mimeSDK")]),
+        .target(name: "mimeSDK", dependencies: []),
+        .testTarget(name: "mimeTests", dependencies: [.target(name: "mimeSDK")]),
     ]
 )
+

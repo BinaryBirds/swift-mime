@@ -7,22 +7,26 @@ let package = Package(
         .macOS(.v10_15),
     ],
     products: [
-        .library(
-            name: "MIME",
-            targets: ["MIME"]
-        ),
+        .executable(name: "mime", targets: ["mime"]),
+        .library(name: "mimeSDK",targets: ["mimeSDK"]),
     ],
     dependencies: [
-        // none
+        .package(url: "https://github.com/behrang/YamlSwift.git", from: "3.4.4")
     ],
     targets: [
+        .executableTarget(
+            name: "mime",
+            dependencies: ["mimeSDK"]
+        ),
         .target(
-            name: "MIME",
-            dependencies: []
+            name: "mimeSDK",
+            dependencies: [
+                .product(name: "Yaml")
+            ]
         ),
         .testTarget(
             name: "MIMETests",
-            dependencies: ["MIME"]
+            dependencies: ["mimeSDK"]
         ),
     ]
 )

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import MIME
+@testable import mimeSDK
 
 final class MIMETests: XCTestCase {
 

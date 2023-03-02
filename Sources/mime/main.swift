@@ -15,15 +15,12 @@ if (args.count >= 2) {
 }
 
 if (!ext.isEmpty) {
-    let mimeArray = mimeType(for: ext)
-    if (!mimeArray.isEmpty) {
-        print(mimeArray)
-        
+    let mimeResults = mimeType(for: ext)
+    if (!mimeResults.isEmpty) {
+        print(mimeResults)
     } else {
-        print("No mime type found for '\(ext)'")
-        
+        print("Error: no mime type found for '\(ext)' extension")
     }
-    
 } else {
-    print("Missing extension type")
+    print("Error: missing extension type")
 }

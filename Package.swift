@@ -2,27 +2,16 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-mime",
-    platforms: [
-        .macOS(.v10_15),
-    ],
+    name: "mime",
+    platforms: [.macOS(.v10_15),],
     products: [
-        .library(
-            name: "MIME",
-            targets: ["MIME"]
-        ),
-    ],
-    dependencies: [
-        // none
+        .executable(name: "mime", targets: ["mime"]),
+        .library(name: "mimeSDK", targets: ["mimeSDK"])
     ],
     targets: [
-        .target(
-            name: "MIME",
-            dependencies: []
-        ),
-        .testTarget(
-            name: "MIMETests",
-            dependencies: ["MIME"]
-        ),
+        .executableTarget(name: "mime", dependencies: [.target(name: "mimeSDK")]),
+        .target(name: "mimeSDK", dependencies: []),
+        .testTarget(name: "mimeTests", dependencies: [.target(name: "mimeSDK")]),
     ]
 )
+

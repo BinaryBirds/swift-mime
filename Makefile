@@ -2,7 +2,7 @@ release:
 	swift package update && swift build -c release
 
 install: release
-	install .build/Release/mime /usr/local/bin/swift-mime
+	install .build/Release/mime-cli /usr/local/bin/mime
 
 uninstall:
-	rm /usr/local/bin/swift-mime
+	rm /usr/local/bin/mime

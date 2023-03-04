@@ -28,8 +28,14 @@ You can just use the [Swift Package Manager](https://theswiftdev.com/2017/11/09/
 ⚠️ Don't forget to add "mimeSDK" to your target as a dependency!
 
 ```swift
-import mimeSDK
+import MIME
 
 let mimeResults = mimeType(for:'pd')
 print(mimeResults)
 ```
+
+## Useful resources
+
+- [mimetype.io](https://mimetype.io/all-types/)
+- [All known MIME types](https://www.digipres.org/formats/mime-types/)
+- [What Is a File Extension and MIME Type?](https://www.lifewire.com/file-extensions-and-mime-types-3469109)

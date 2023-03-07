@@ -1,37 +1,37 @@
 # swift-mime
 
-swift-mime converts file extensions into file MIME types.
-
+The swift-mime library can convert file extensions into possible MIME types.
 
 ## Install command line utility
 
 You can use the command line utility to convert file extensions into file MIME types on the fly.
 
 ```
-git clone https://github.com/BinaryBirds/swift-mime.git && cd swift-mime
-make install
+$ git clone https://github.com/BinaryBirds/swift-mime.git && cd swift-mime
+$ make install
+
+$ mime txt 
+$ # => text/plain
 ```
 
-## Usage
+## Library usage
 
-In your project folder run:
-`swift mime pdf` 
-
-If no extension added as an argument or wrong extension type added then error will thrown.
-
-You can just use the [Swift Package Manager](https://theswiftdev.com/2017/11/09/swift-package-manager-tutorial/) as usual:
+You can use the [Swift Package Manager](https://theswiftdev.com/2017/11/09/swift-package-manager-tutorial/) as usual:
 
 ```swift
 .package(url: "https://github.com/binarybirds/swift-mime", from: "1.0.0"),
+
+.product(name: "MIME", package: "mime")
 ```
 
-⚠️ Don't forget to add "mimeSDK" to your target as a dependency!
+⚠️ Don't forget to add "MIME" to your target as a dependency!
 
 ```swift
 import MIME
 
-let mimeResults = mimeType(for:'pd')
-print(mimeResults)
+let result = possibleMIMEType(for: "txt")
+
+print(result) // text/plain
 ```
 
 ## Useful resources

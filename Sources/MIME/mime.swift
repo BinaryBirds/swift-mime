@@ -5,13 +5,13 @@
 //  Created by Tibor Bodecs on 2023. 02. 24..
 //
 
-public func MIMEType(for ext: String) -> String? {
+public func possibleMIMEType(for ext: String) -> String? {
     for (key, exts) in basicTypes {
         if exts.contains(ext) {
             return key
         }
     }
-    return nil
+    return allKnownMIMETypes(for: ext).first
 }
 
 public func allKnownMIMETypes(for ext: String) -> [String] {

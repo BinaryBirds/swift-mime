@@ -18,9 +18,9 @@ guard !ext.isEmpty else {
     fatalError("Error: missing extension type")
 }
 
-let results = allKnownMIMETypes(for: ext)
-guard !results.isEmpty else {
+let result = possibleMIMEType(for: ext)
+guard let result else {
     fatalError("Error: no mime type found for '\(ext)' extension")
 }
-print(results.joined(separator: "\n"))
+print(result)
 

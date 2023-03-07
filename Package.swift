@@ -22,7 +22,7 @@ let package = Package(
             dependencies: [
                 .target(
                     name: "MIME"
-                )
+                ),
             ]
         ),
         .target(
@@ -34,7 +34,7 @@ let package = Package(
             dependencies: [
                 .target(
                     name: "MIME"
-                )
+                ),
             ]
         ),
     ]

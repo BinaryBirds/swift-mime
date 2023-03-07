@@ -11,7 +11,8 @@ import XCTest
 final class MIMETests: XCTestCase {
     
     func testBasicTypes() throws {
-        XCTAssertEqual("text/html", MIMEType(for: "html"))
+        XCTAssertEqual("text/html", possibleMIMEType(for: "html"))
+        XCTAssertEqual("application/json", possibleMIMEType(for: "json"))
     }
 
     // MARK: - test all types

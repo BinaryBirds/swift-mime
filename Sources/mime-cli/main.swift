@@ -18,7 +18,8 @@ guard !ext.isEmpty else {
     fatalError("Error: missing extension type")
 }
 
-let result = possibleMIMEType(for: ext)
+let mime = MIME(.known)
+let result = mime.getType(for: ext)
 guard let result else {
     fatalError("Error: no mime type found for '\(ext)' extension")
 }

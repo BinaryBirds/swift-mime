@@ -29,13 +29,17 @@ You can use the [Swift Package Manager](https://theswiftdev.com/2017/11/09/swift
 ```swift
 import MIME
 
-let result = possibleMIMEType(for: "txt")
+let mime = MIME()
+let result = mime.getType(for: "txt")
 
-print(result) // text/plain
+print(result) // => text/plain
 ```
 
 ## Useful resources
 
+- [Mime types for JavaScript](https://github.com/broofa/mime)
+- [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types)
 - [mimetype.io](https://mimetype.io/all-types/)
 - [All known MIME types](https://www.digipres.org/formats/mime-types/)
 - [What Is a File Extension and MIME Type?](https://www.lifewire.com/file-extensions-and-mime-types-3469109)
+

@@ -21,7 +21,7 @@ You can use the [Swift Package Manager](https://theswiftdev.com/2017/11/09/swift
 ```swift
 .package(url: "https://github.com/binarybirds/swift-mime", from: "1.0.0"),
 
-.product(name: "MIME", package: "mime")
+.product(name: "MIME", package: "swift-mime"),
 ```
 
 ⚠️ Don't forget to add "MIME" to your target as a dependency!

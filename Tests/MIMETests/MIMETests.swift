@@ -29,8 +29,17 @@ final class MIMETests: XCTestCase {
         XCTAssertNil(nsMime.getType(for: "txt"))
         XCTAssertNil(nsMime.getExtension(for: "text/plain"))
     }
+   
+// MARK: - test differences
     
-    func testKnownMDNExtensions() {    
+//    MDN[aac] = audio/aac, mime[aac] = audio/x-aac
+//    MDN[js] = text/javascript, mime[js] = application/javascript
+//    MDN[mid] = audio/x-midi, mime[mid] = audio/midi
+//    MDN[midi] = audio/x-midi, mime[midi] = audio/midi
+//    MDN[mjs] = text/javascript, mime[mjs] = application/javascript
+//    MDN[opus] = audio/opus, mime[opus] = audio/ogg
+//    MDN[php] = application/php, mime[php] = application/x-httpd-php
+    func testKnownMDNExtensions() {
         let testCases = [
             "json": "application/json",
             "jsonld": "application/ld+json",
@@ -87,4 +96,26 @@ final class MIMETests: XCTestCase {
             XCTAssertEqual(mime.getType(for: ext), expectation)
         }
     }
+    
+//      mime-types[exe] = application/x-msdos-program, mime[exe] = application/octet-stream
+//      mime-types[dll] = application/x-msdownload, mime[dll] = application/octet-stream
+//      mime-types[deb] = application/x-debian-package, mime[deb] = application/octet-stream
+//      mime-types[dmg] = application/x-apple-diskimage, mime[dmg] = application/octet-stream
+//      mime-types[iso] = application/x-iso9660-image, mime[iso] = application/octet-stream
+//      mime-types[msi] = application/x-msdownload, mime[msi] = application/octet-stream
+//      mime-types[wav] = audio/wave, mime[wav] = audio/wav
+//    func testExpected() {
+//        let def = Definition.nonStandard
+//        let mime = MIME(def)
+//        let values = def.values
+//
+//        for type in values.keys {
+//            for ext in values[type]! {
+//                let mimeType = mime.getType(for: ext)
+//                if mimeType != type {
+//                    print(mimeType, type)
+//                }
+//            }
+//        }
+//    }
 }
